@@ -2,11 +2,11 @@
 
 Provides three pluggable authentication strategies:
 
-- :class:`~netsight.api.auth.api_key.APIKeyBackend` — opaque shared secrets
-- :class:`~netsight.api.auth.jwt.JWTBackend` — HS256-signed JSON Web Tokens
-- :class:`~netsight.api.auth.oauth.OAuthBackend` — OAuth 2.0 provider registry
+- :class:`~netsight_ops.api.auth.api_key.APIKeyBackend` — opaque shared secrets
+- :class:`~netsight_ops.api.auth.jwt.JWTBackend` — HS256-signed JSON Web Tokens
+- :class:`~netsight_ops.api.auth.oauth.OAuthBackend` — OAuth 2.0 provider registry
 
-All backends return an :class:`~netsight.api.auth.context.AuthContext` on
+All backends return an :class:`~netsight_ops.api.auth.context.AuthContext` on
 successful authentication.
 """
 

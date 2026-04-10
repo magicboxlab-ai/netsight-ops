@@ -1,7 +1,7 @@
 """NetSight API route modules.
 
 Each sub-module exposes a :class:`fastapi.APIRouter` instance under the
-name ``router``.  Import these routers in :func:`netsight.api.server.create_app`
+name ``router``.  Import these routers in :func:`netsight_ops.api.server.create_app`
 and include them under the ``/api/v1`` prefix.
 """
 
