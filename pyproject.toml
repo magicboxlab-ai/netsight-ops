@@ -1,0 +1,62 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "netsight-ops"
+version = "0.1.0"
+description = "Runtime service platform for NetSight — HTTP API + MCP operations server"
+readme = "README.md"
+requires-python = ">=3.14"
+license = "MIT"
+authors = [
+    {name = "NetSight contributors"},
+]
+keywords = ["network", "automation", "api", "mcp", "fastapi", "graphql"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: System Administrators",
+    "Intended Audience :: Information Technology",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: System :: Networking",
+    "Topic :: System :: Networking :: Monitoring",
+    "Typing :: Typed",
+]
+
+dependencies = [
+    "netsight-sdk>=1.0.0,<2.0.0",
+    "fastapi>=0.100.0",
+    "uvicorn>=0.23.0",
+    "strawberry-graphql>=0.200.0",
+    "python-jose[cryptography]>=3.3.0",
+    "passlib[bcrypt]>=1.7.4",
+    "websockets>=11.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "pytest-asyncio>=0.23.0",
+    "httpx>=0.24.0",
+    "mypy>=1.5",
+    "ruff>=0.1.0",
+]
+
+[project.entry-points."netsight_ops.services"]
+api = "netsight_ops.api:register"
+mcp = "netsight_ops.mcp:register"
+
+[project.scripts]
+netsight-ops = "netsight_ops.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["netsight_ops*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py314"
